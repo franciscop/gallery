@@ -1,0 +1,124 @@
+body, html, main {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background: #daffff;
+}
+
+nav {
+  font-size: 20px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 100;
+}
+
+nav a {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  background: rgba(255, 255, 255, .6);
+  margin: 30px 10px 10px;
+  border-radius: 50%;
+}
+
+nav svg {
+  width: 80px;
+  height: 80px;
+  padding: 10px;
+}
+
+main svg {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+@media all and (max-aspect-ratio: 4/3) {
+  nav {
+    top: 0;
+    bottom: auto;
+  }
+  nav svg {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media all and (max-width: 450px) {
+  nav svg {
+    width: 40px;
+    height: 40px;
+    margin: 0;
+  }
+}
+
+main svg * {
+  pointer-events: none;
+}
+
+
+* {
+  transition: all 1s cubic-bezier(.2, -0.2, .8, 1.2);
+}
+
+main .sea .grass .bottom,
+main .beach .grass .bottom {
+  fill: #5bf;
+}
+
+main .sea .grass .top {
+  fill: #5cf;
+}
+
+main .beach .grass .top {
+  fill: #ffa;
+}
+
+
+main #mountain,
+main #tree,
+main #boat,
+main #fish,
+main #bird,
+main #sun,
+main #palm,
+main #floater {
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 1s ease;
+}
+
+main .mountain #mountain,
+main .mountain #tree,
+main .sea #bird,
+main .sea #fish,
+main .beach #sun,
+main .beach #palm,
+main .beach #floater {
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+main .sea #boat {
+  opacity: 1;
+  transform: translateY(0);
+  animation: rock 2s ease 1s infinite;
+}
+
+@keyframes rock {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform-origin: 100% 50%;
+    transform: rotate(.5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
